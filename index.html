@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Светлана — сайты и тексты для небольшого бизнеса</title>
+  <meta name="description" content="Светлана: сайты-визитки, лендинги, тексты для сайтов, соцсетей и маркетплейсов. Пишите в Telegram.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Цвета сайта (меняйте здесь) ===== */
+    :root {
+      --bg: #FAF8F5;          /* фон — тёплый белый */
+      --surface: #FFFFFF;     /* карточки */
+      --soft: #F1EDE7;        /* мягкий серо-бежевый */
+      --text: #1F2933;        /* основной текст */
+      --muted: #5B6672;       /* второстепенный текст */
+      --line: #E4DED6;        /* линии и рамки */
+      --accent: #E4572E;      /* яркий цвет кнопок — коралловый */
+      --accent-dark: #C8431D; /* кнопка при наведении */
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 17px;
+    }
+
+    .container { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+    /* ===== Шапка ===== */
+    header { padding: 24px 0; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; text-decoration: none; color: var(--text); }
+    .brand .logo-small {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--text); color: var(--bg);
+      display: grid; place-items: center; font-weight: 800; font-size: 20px;
+    }
+    .nav-link { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 15px; }
+    .nav-link:hover { color: var(--accent); }
+
+    /* ===== Кнопка ===== */
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--accent); color: #fff;
+      padding: 16px 28px; border-radius: 12px;
+      font-weight: 700; font-size: 17px; text-decoration: none;
+      box-shadow: 0 6px 18px rgba(228, 87, 46, 0.28);
+      transition: background .2s, transform .2s, box-shadow .2s;
+    }
+    .btn:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(228, 87, 46, 0.35); }
+    .btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+    /* ===== Первый экран ===== */
+    .hero { padding: 56px 0 88px; }
+    .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center; }
+    .eyebrow { color: var(--accent); font-weight: 700; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 16px; }
+    h1 { font-size: clamp(36px, 6vw, 56px); line-height: 1.1; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 20px; }
+    .lead { font-size: 20px; color: var(--muted); max-width: 520px; margin-bottom: 36px; }
+
+    /* Знак с буквой «С». Позже здесь можно поставить фото:
+       замените <div class="monogram">С</div> на <img class="monogram" src="photo.jpg" alt="Светлана"> */
+    .monogram {
+      width: 100%; max-width: 320px; aspect-ratio: 1; margin-left: auto;
+      border-radius: 50%;
+      background: var(--soft);
+      border: 2px solid var(--line);
+      display: grid; place-items: center;
+      font-size: 160px; font-weight: 800; color: var(--accent);
+      object-fit: cover;
+      position: relative;
+    }
+    .monogram::after {
+      content: ""; position: absolute; inset: 18px;
+      border-radius: 50%; border: 1px solid var(--line);
+    }
+
+    /* ===== Разделы ===== */
+    section { padding: 80px 0; }
+    .section-alt { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    h2 { font-size: clamp(28px, 4vw, 38px); font-weight: 800; letter-spacing: -0.01em; margin-bottom: 40px; }
+
+    /* Услуги */
+    .services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .card {
+      background: var(--bg); border: 1px solid var(--line); border-radius: 16px;
+      padding: 28px;
+    }
+    .card .num { color: var(--accent); font-weight: 800; font-size: 14px; margin-bottom: 12px; }
+    .card h3 { font-size: 21px; font-weight: 700; margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: 16px; }
+
+    /* Обо мне */
+    .about { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; }
+    .about h2 { margin-bottom: 0; }
+    .about p { font-size: 19px; margin-bottom: 18px; }
+    .about p:last-child { margin-bottom: 0; }
+
+    /* Контакты */
+    .contact { text-align: center; }
+    .contact-box {
+      background: var(--text); color: var(--bg);
+      border-radius: 24px; padding: 64px 28px;
+    }
+    .contact-box h2 { margin-bottom: 14px; }
+    .contact-box p { color: #C9CED4; font-size: 19px; margin-bottom: 32px; }
+    .tg-name { display: block; margin-top: 18px; color: #C9CED4; font-size: 15px; }
+
+    footer { padding: 32px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
+
+    /* ===== Телефоны ===== */
+    @media (max-width: 760px) {
+      .hero { padding: 24px 0 56px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+      .monogram { order: -1; max-width: 160px; font-size: 80px; margin: 0; }
+      .monogram::after { inset: 10px; }
+      .lead { font-size: 18px; }
+      section { padding: 56px 0; }
+      .services { grid-template-columns: 1fr; }
+      .about { grid-template-columns: 1fr; gap: 20px; }
+      .about p { font-size: 17px; }
+      .contact-box { padding: 48px 20px; }
+      .btn { width: 100%; justify-content: center; }
+      .nav-link { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">
+        <span class="logo-small">С</span>
+        <span>Светлана</span>
+      </a>
+      <a class="nav-link" href="#contact">Связаться</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Первый экран -->
+    <div class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Сайты и тексты</p>
+          <h1>Помогаю небольшому бизнесу рассказать о себе</h1>
+          <p class="lead">Меня зовут Светлана. Делаю сайты и пишу тексты для небольшого бизнеса — понятно и по делу.</p>
+          <a class="btn" href="https://t.me/Svet_Lana_Evdokimova" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13 1.4 11.5c-1-.3-1.1-1 .2-1.5L20.5 2.7c.9-.3 1.7.2 1.4 1.6Z"/></svg>
+            Написать в Telegram
+          </a>
+        </div>
+        <div class="monogram" aria-hidden="true">С</div>
+      </div>
+    </div>
+
+    <!-- Услуги -->
+    <section class="section-alt" id="services">
+      <div class="container">
+        <h2>Чем могу помочь</h2>
+        <div class="services">
+          <div class="card">
+            <div class="num">01</div>
+            <h3>Сайт-визитка</h3>
+            <p>Одна аккуратная страница о вас и вашем деле: кто вы, что предлагаете и как с вами связаться.</p>
+          </div>
+          <div class="card">
+            <div class="num">02</div>
+            <h3>Лендинг</h3>
+            <p>Страница под конкретную услугу или товар, которая подводит посетителя к заявке.</p>
+          </div>
+          <div class="card">
+            <div class="num">03</div>
+            <h3>Тексты для сайтов</h3>
+            <p>Понятные тексты о вашей компании, услугах и преимуществах — без канцелярита и воды.</p>
+          </div>
+          <div class="card">
+            <div class="num">04</div>
+            <h3>Тексты для соцсетей и маркетплейсов</h3>
+            <p>Посты для соцсетей и описания товаров для карточек на маркетплейсах.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Обо мне -->
+    <section id="about">
+      <div class="container about">
+        <h2>Обо мне</h2>
+        <div>
+          <p>Я сама пробовала открыть своё дело и знаю, как непросто начинать: хочется, чтобы о тебе узнали, а на сайт и тексты не хватает ни времени, ни сил.</p>
+          <p>Сейчас я осваиваю создание сайтов и пишу тексты для небольшого бизнеса. Работаю внимательно и честно: вникаю в ваше дело, задаю вопросы и пишу просто и по делу, без лишних слов.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <h2>Обсудим вашу задачу?</h2>
+          <p>Напишите мне в Telegram — расскажите о своём деле, и я отвечу.</p>
+          <a class="btn" href="https://t.me/Svet_Lana_Evdokimova" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13 1.4 11.5c-1-.3-1.1-1 .2-1.5L20.5 2.7c.9-.3 1.7.2 1.4 1.6Z"/></svg>
+            Написать в Telegram
+          </a>
+          <span class="tg-name">@Svet_Lana_Evdokimova</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Светлана · Сайты и тексты для небольшого бизнеса</div>
+  </footer>
+
+</body>
+</html>
