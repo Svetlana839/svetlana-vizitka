@@ -64,8 +64,7 @@
     h1 { font-size: clamp(36px, 6vw, 56px); line-height: 1.1; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 20px; }
     .lead { font-size: 20px; color: var(--muted); max-width: 520px; margin-bottom: 36px; }
 
-    /* Знак с буквой «С». Позже здесь можно поставить фото:
-       замените <div class="monogram">С</div> на <img class="monogram" src="photo.jpg" alt="Светлана"> */
+    /* Круглое фото Светланы (файл photo.jpg рядом с index.html) */
     .monogram {
       width: 100%; max-width: 320px; aspect-ratio: 1; margin-left: auto;
       border-radius: 50%;
@@ -76,6 +75,7 @@
       object-fit: cover;
       position: relative;
     }
+    img.monogram { display: block; }
     .monogram::after {
       content: ""; position: absolute; inset: 18px;
       border-radius: 50%; border: 1px solid var(--line);
@@ -156,7 +156,7 @@
             Написать в Telegram
           </a>
         </div>
-        <div class="monogram" aria-hidden="true">С</div>
+        <img class="monogram" src="photo.jpg" alt="Светлана">
       </div>
     </div>
 
