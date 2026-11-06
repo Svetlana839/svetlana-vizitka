@@ -113,6 +113,7 @@
     .tg-name { display: block; margin-top: 18px; color: #C9CED4; font-size: 15px; }
 
     footer { padding: 32px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
+    footer .cookies { margin-top: 8px; font-size: 13px; }
 
     /* ===== Телефоны ===== */
     @media (max-width: 760px) {
@@ -130,8 +131,26 @@
       .nav-link { display: none; }
     }
   </style>
+
+  <!-- Яндекс Метрика (без Вебвизора) -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(114108084, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: false
+    });
+  </script>
+  <!-- /Яндекс Метрика -->
 </head>
 <body>
+  <noscript><div><img src="https://mc.yandex.ru/watch/114108084" style="position:absolute; left:-9999px;" alt=""></div></noscript>
 
   <header>
     <div class="container nav">
@@ -217,7 +236,10 @@
   </main>
 
   <footer>
-    <div class="container">© 2026 Светлана · Сайты и тексты для небольшого бизнеса</div>
+    <div class="container">
+      <div>© 2026 Светлана · Сайты и тексты для небольшого бизнеса</div>
+      <div class="cookies">Сайт использует файлы cookie и Яндекс Метрику, чтобы понимать, как им пользуются.</div>
+    </div>
   </footer>
 
 </body>
